@@ -1,0 +1,17 @@
+.py-base {
+  padding-block: var(--py-base);
+}
+
+.px-base {
+  padding-inline: var(--px-base);
+}
+
+.container {
+  --max-width: 627px;
+  width: min(var(--max-width), 100% - var(--px-base) * 2);
+  margin-inline: auto;
+}
+
+.content {
+  width: min(var(--max-width), 100% - var(--px-base) * 2);
+}
