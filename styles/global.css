@@ -54,5 +54,6 @@ ul li {
   list-style: none;
 }
 
-@media (width >= 80em) {
+input[type="checkbox"] {
+  display: none;
 }

@@ -1,5 +1,11 @@
 header {
-  margin-top: 1.563rem;
+  display: none;
+}
 
-  text-align: center;
+@media (width >= 80rem) {
+  header {
+    margin-top: 1.563rem;
+
+    text-align: center;
+  }
 }
