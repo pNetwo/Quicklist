@@ -29,44 +29,43 @@
         <h1>Compras da Semana</h1>
 
         <div class="content">
-          <form id="form">
+          <form>
             <input
               type="text"
-              id="item"
-              name="item"
+              id="new-item"
+              name="new-item"
               placeholder="Adicione um novo item"
               required
             />
-            <button type="submit" form="new-item">Adicionar item</button>
+            <button type="submit" form="new-item" id="add-btn">
+              Adicionar item
+            </button>
           </form>
         </div>
 
         <div class="list">
-          <ul id="list">
+          <ul id="item-list">
             <li>
-              <input type="checkbox" name="item" id="item">
+              <input type="checkbox" name="check" id="item1" />
+              <label for="item1" class="checkbox-label"></label>
               <span>Pão de forma</span>
-              <img class="remove" src="/assets/icons/trash-default.svg" alt="" />
-            </li>
-            <li>
-              <img class="check" src="/assets/icons/checkbox-default.svg" alt="" />
-              <span>Banana</span>
-              <img class="remove" src="/assets/icons/trash-default.svg" alt="" />
-            </li>
-            <li>
-              <img class="check" src="/assets/icons/checkbox-default.svg" alt="" />
-              <span>Suco de laranja</span>
-              <img class="remove" src="/assets/icons/trash-default.svg" alt="" />
+              <img
+                class="delete-item"
+                src="/assets/icons/trash-default.svg"
+                alt=""
+              />
             </li>
           </ul>
         </div>
 
-        <div class="remove">
-          <img src="" alt="" />
+        <div class="item-removed hidden">
+          <img src="/assets/icons/alert.svg" alt="" />
           <span>O item foi removido da lista</span>
-          <img src="" alt="" />
+          <img src="/assets/icons/close.svg" alt="" />
         </div>
       </main>
     </div>
   </body>
+
+  <script src="scripts/index.js"></script>
 </html>
