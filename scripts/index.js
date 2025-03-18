@@ -2,13 +2,31 @@ const input = document.getElementById("new-item");
 const list = document.getElementById("item-list");
 const add = document.getElementById("add-btn");
 
+// display de itens removidos.
+const removedMessage = document.getElementById("removed-message");
+
+// Função para mostrar mensagem de item removido.
+function showRemovedItem() {
+  removedMessage.classList.remove("hidden");
+
+  setTimeout(() => {
+    removedMessage.classList.add("hidden");
+  }, 3000);
+
+  return;
+}
+
 // função para adicionar item.
 function addItem() {
   const li = document.createElement("li");
   const id = Math.floor(100 + Math.random() * 900);
+  const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 
   if (input.value.trim() === "") {
     alert("Por favor, insira um item válido.");
+    return;
+  } else if (!regex.test(input.value.trim())) {
+    alert("Por favor, insira um item válido sem números.");
     return;
   }
 
@@ -24,6 +42,8 @@ function addItem() {
     if (li.querySelector("input").checked) {
       li.querySelector(".delete-item").addEventListener("click", () => {
         li.remove();
+
+        showRemovedItem();
       });
     }
   });
@@ -36,13 +56,6 @@ function addItem() {
   });
 
   // Mostrar display de item removido.
-  li.querySelector("input").addEventListener("change", () => {
-    if (li.querySelector("input").checked) {
-      li.classList.add("hidden");
-    } else {
-      li.classList.remove("item-removed");
-    }
-  });
 
   list.appendChild(li);
 
@@ -50,3 +63,9 @@ function addItem() {
 }
 
 add.addEventListener("click", addItem);
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addItem();
+  }
+});
